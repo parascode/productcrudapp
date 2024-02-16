@@ -48,4 +48,13 @@ public class MainController {
 		redirectView.setUrl(request.getContextPath() + "/");
 		return redirectView;
 	}
+	@RequestMapping("/update/{pid}")
+	public String updateProduct(@PathVariable("pid") int pid, Model model) {
+//		System.out.println(pid);
+		Product p = this.productDao.getProduct(pid);
+//		System.out.println(p);
+		model.addAttribute("title", "Update Product");
+		model.addAttribute("product", p);
+		return "update_product";
+	}
 }

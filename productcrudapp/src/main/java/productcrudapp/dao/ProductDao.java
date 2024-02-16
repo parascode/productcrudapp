@@ -17,7 +17,7 @@ public class ProductDao {
 	
 	@Transactional
 	public void createProduct(Product p) {
-		this.hibernateTemplate.save(p);
+		this.hibernateTemplate.saveOrUpdate(p);
 	}
 	
 	public List<Product> getProducts() {
@@ -28,7 +28,8 @@ public class ProductDao {
 		Product p = this.hibernateTemplate.load(Product.class, pid);
 		this.hibernateTemplate.delete(p);
 	}
+	@Transactional
 	public Product getProduct(int pid) {
-		return this.hibernateTemplate.load(Product.class, pid);
+		return this.hibernateTemplate.get(Product.class, pid);
 	}
 }
