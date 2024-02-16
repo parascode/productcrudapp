@@ -39,7 +39,7 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value></value>
+                <value>productcrudapp.model.Product</value>
             </list>
         </property>
     </bean>
